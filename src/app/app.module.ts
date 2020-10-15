@@ -5,6 +5,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ReactiveFormsComponent } from './reactive-forms/reactive-forms.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -15,7 +19,12 @@ import { ReactiveFormsComponent } from './reactive-forms/reactive-forms.componen
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatSliderModule,
+    MatFormFieldModule,
+    MatInputModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

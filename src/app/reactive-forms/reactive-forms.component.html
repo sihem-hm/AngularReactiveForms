@@ -1,10 +1,12 @@
+
+<mat-slider min="1" max="100" step="1" value="1"></mat-slider>
 <div class="panel panel-primary">
     <div class="panel-heading">
         Sign Up!
     </div>
 
-    <div class="panel-body">
-        <form class="form-horizontal"
+    <div class="example-container">
+        <mat-form-field appearance="fill"
               novalidate
               (ngSubmit)="save()"
               [formGroup]="customerForm">
@@ -13,11 +15,10 @@
                     [ngClass]="{'has-error': (customerForm.get('firstName').touched || 
                                               customerForm.get('firstName').dirty) &&
                                               !customerForm.get('firstName').valid }">
-                    <label class="col-md-2 control-label" 
-                           for="firstNameId">First Name</label>
+                                              <mat-label> First Name </mat-label> 
 
                     <div class="col-md-8">
-                        <input class="form-control" 
+                      <input matInput    class="form-control" 
                                id="firstNameId" 
                                type="text" 
                                placeholder="First Name (required)" 
@@ -37,11 +38,12 @@
 
                 <div class="form-group"
                     [ngClass]="{'has-error': (customerForm.get('lastName').touched || customerForm.get('lastName').dirty) && !customerForm.get('lastName').valid }">
-                    <label class="col-md-2 control-label" 
-                        for="lastNameId">Last Name</label>
+                     <mat-label
+ class="col-md-2 control-label" 
+                        for="lastNameId">Last Name</mat-label> 
 
                     <div class="col-md-8">
-                        <input class="form-control" 
+                        <input matInput class="form-control" 
                                id="lastNameId" 
                                type="text" 
                                placeholder="Last Name (required)" 
@@ -58,11 +60,12 @@
                      [ngClass]="{'has-error': customerForm.get('emailGroup').errors }">
                     <div class="form-group"
                          [ngClass]="{'has-error': emailMessage}">
-                        <label class="col-md-2 control-label" 
-                            for="emailId">Email</label>
+                         <mat-label
+ class="col-md-2 control-label" 
+                            for="emailId">Email</mat-label> 
 
                         <div class="col-md-8">
-                            <input class="form-control" 
+                            <input matInput class="form-control" 
                                 id="emailId" 
                                 type="email" 
                                 placeholder="Email (required)" 
@@ -77,11 +80,12 @@
                         [ngClass]="{'has-error': (customerForm.get('emailGroup.confirmEmail').touched || 
                                                   customerForm.get('emailGroup.confirmEmail').dirty) && 
                                                   !customerForm.get('emailGroup.confirmEmail').valid }">
-                        <label class="col-md-2 control-label" 
-                            for="confirmEmailId">Confirm Email</label>
+                         <mat-label
+ class="col-md-2 control-label" 
+                            for="confirmEmailId">Confirm Email</mat-label> 
 
                         <div class="col-md-8">
-                            <input class="form-control" 
+                            <input matInput class="form-control" 
                                 id="confirmEmailId" 
                                 type="email" 
                                 placeholder="Confirm Email (required)" 
@@ -103,11 +107,12 @@
 
                 <div class="form-group"
                     [ngClass]="{'has-error': !customerForm.get('phone').valid }">
-                    <label class="col-md-2 control-label" 
-                        for="phoneId">Phone</label>
+                     <mat-label
+ class="col-md-2 control-label" 
+                        for="phoneId">Phone</mat-label> 
 
                     <div class="col-md-8">
-                        <input class="form-control" 
+                        <input matInput class="form-control" 
                                id="phoneId" 
                                type="tel" 
                                placeholder="Phone" 
@@ -121,18 +126,22 @@
                 </div>
 
                 <div class="form-group" >
-                    <label class="col-md-2 control-label">Send Notifications</label>
+                     <mat-label
+ class="col-md-2 control-label">Send Notifications</mat-label> 
                     <div class="col-md-8">
-                            <label class="radio-inline">
-                                <input type="radio" 
+                             <mat-label
+ class="radio-inline">
+                                <input  type="radio" 
                                        value="email" 
                                        formControlName = "notification">Email
-                            </label>
-                            <label class="radio-inline">
-                                <input type="radio" 
+                            </mat-label> 
+                             <mat-label
+ class="radio-inline">
+                                <input 
+                                 type="radio" 
                                        value="text" 
                                        formControlName = "notification">Text
-                            </label>
+                            </mat-label> 
                     </div>
                 </div>
 
@@ -140,11 +149,12 @@
                     [ngClass]="{'has-error': (customerForm.get('rating').touched || 
                                               customerForm.get('rating').dirty) && 
                                               !customerForm.get('rating').valid }">
-                    <label class="col-md-2 control-label" 
-                        for="ratingId">Rating</label>
+                     <mat-label
+ class="col-md-2 control-label" 
+                        for="ratingId">Rating</mat-label> 
 
                     <div class="col-md-8">
-                        <input class="form-control" 
+                        <input matInput class="form-control" 
                                id="ratingId" 
                                type="number" 
                                formControlName = "rating" />
@@ -160,12 +170,13 @@
 
                 <div class="form-group">
                     <div class="col-md-offset-1 col-md-8 checkbox" >
-                        <label>
-                            <input id="sendCatalogId"
+                         <mat-label
+>
+                            <input matInputid="sendCatalogId"
                                    type="checkbox"
                                    formControlName = "sendCatalog" >
                             Send me your catalog
-                        </label>
+                        </mat-label> 
                     </div>
                 </div>
                 
@@ -186,28 +197,33 @@
                     <div formArrayName="addresses" *ngFor="let address of addresses.controls; let i=index">
                         <div [formGroupName]="i">
                             <div class="form-group" >
-                                <label class="col-md-2 control-label">Address Type</label>
+                                 <mat-label
+ class="col-md-2 control-label">Address Type</mat-label> 
                                 <div class="col-md-8">
-                                        <label class="radio-inline">
-                                            <input type="radio" id="addressType1Id" value="home"
+                                         <mat-label
+ class="radio-inline">
+                                            <input  type="radio" id="addressType1Id" value="home"
                                                 formControlName="addressType">Home
-                                        </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" id="addressType1Id" value="work"
+                                        </mat-label> 
+                                         <mat-label
+ class="radio-inline">
+                                            <input  type="radio" id="addressType1Id" value="work"
                                                 formControlName="addressType">Work
-                                        </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" id="addressType1Id" value="other"
+                                        </mat-label> 
+                                         <mat-label
+ class="radio-inline">
+                                            <input  type="radio" id="addressType1Id" value="other"
                                                 formControlName="addressType">Other
-                                        </label>
+                                        </mat-label> 
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="col-md-2 control-label" 
-                                    attr.for ="{{ 'street1Id' + i }}">Street Address 1</label>
+                                 <mat-label
+ class="col-md-2 control-label" 
+                                    attr.for ="{{ 'street1Id' + i }}">Street Address 1</mat-label> 
                                 <div class="col-md-8">
-                                    <input type="text" 
+                                    <input matInput type="text" 
                                         class="form-control" 
                                         id="{{ 'street1Id' + i }}" 
                                         placeholder="Street address"
@@ -216,10 +232,11 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="col-md-2 control-label" 
-                                    for="street2Id">Street Address 2</label>
+                                 <mat-label
+ class="col-md-2 control-label" 
+                                    for="street2Id">Street Address 2</mat-label> 
                                 <div class="col-md-8">
-                                    <input type="text" 
+                                    <input matInput type="text" 
                                         class="form-control" 
                                         id="street2Id"
                                         placeholder="Street address (second line)"
@@ -228,10 +245,10 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="col-md-2 control-label" 
-                                    for="cityId">City, State, Zip Code</label>
+                                 <mat-label class="col-md-2 control-label" 
+                                    for="cityId">City, State, Zip Code</mat-label> 
                                 <div class="col-md-3">
-                                    <input type="text" 
+                                    <input matInput type="text" 
                                         class="form-control" 
                                         id="cityId" 
                                         placeholder="City"
@@ -253,7 +270,7 @@
                                     </select>
                                 </div>
                                 <div class="col-md-2">
-                                <input type="number"
+                                <input matInput type="number"
                                         class="form-control" 
                                         id="zipId" 
                                         placeholder="Zip Code"
@@ -283,7 +300,7 @@
                     </div>
                 </div>
             </fieldset>
-        </form>
+        </mat-form-field>
     </div>
 </div>
 <br>Dirty: {{ customerForm.dirty }} 
