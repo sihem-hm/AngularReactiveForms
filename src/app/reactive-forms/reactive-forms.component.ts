@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
-import { FormGroup, FormBuilder, Validators, AbstractControl, ValidatorFn, FormArray } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder, Validators, AbstractControl, ValidatorFn, FormArray } from '@angular/forms';
 
 import 'rxjs/add/operator/debounceTime';
 
@@ -35,6 +35,8 @@ export class ReactiveFormsComponent{
   customer: Customer = new Customer();
   customerForm: FormGroup;
   emailMessage: string;
+  hideRequiredControl = new FormControl(false);
+  floatLabelControl = new FormControl('auto');
   private validationMessages = {
     required: 'Please enter your email address.',
     pattern: 'Please enter a valid email address.',
@@ -49,6 +51,8 @@ constructor(private fb: FormBuilder) { }
 
 ngOnInit(): void {
     this.customerForm = this.fb.group({
+      hideRequired: this.hideRequiredControl,
+      floatLabel: this.floatLabelControl,
         firstName: ['', [Validators.required, Validators.minLength(3)]],
         lastName: ['', [Validators.required, Validators.maxLength(50)]],
         emailGroup: this.fb.group({

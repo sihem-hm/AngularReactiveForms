@@ -128,20 +128,17 @@
                 <div class="form-group" >
                      <mat-label
  class="col-md-2 control-label">Send Notifications</mat-label> 
-                    <div class="col-md-8">
-                             <mat-label
- class="radio-inline">
-                                <input  type="radio" 
-                                       value="email" 
-                                       formControlName = "notification">Email
-                            </mat-label> 
-                             <mat-label
- class="radio-inline">
-                                <input 
-                                 type="radio" 
-                                       value="text" 
-                                       formControlName = "notification">Text
-                            </mat-label> 
+ 
+                    <div  >
+                       
+                            
+                            <mat-radio-group [formControl]="floatLabelControl">
+                              <mat-radio-button 
+                              formControlName = "notification"value="Email">Email </mat-radio-button>
+                              <mat-radio-button  value="text" 
+                              formControlName = "notification">Text </mat-radio-button>
+                            </mat-radio-group>
+                         
                     </div>
                 </div>
 
